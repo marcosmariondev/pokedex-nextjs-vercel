@@ -8,7 +8,7 @@ function Home({ props }) {
 
     return (
         <>
-            <h1>Listagem de pokemons!!!</h1>
+            <h1>Listagem de pokemons!!!!!!</h1>
             <hr></hr>
             <ul>
                 {pokemons.length && pokemons.map((pokemon) => {

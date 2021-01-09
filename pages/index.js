@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 // import { Container } from './styles';
 
@@ -7,20 +8,34 @@ function Home({ props }) {
     const { pokemons } = props;
 
     return (
-        <>
-            <h1>Listagem de pokemons!!!!!!</h1>
-            <hr></hr>
-            <ul>
-                {pokemons.length && pokemons.map((pokemon) => {
-
-                    return (<li key={pokemon.entry_number}>
-                        {pokemon.entry_number} -  {pokemon.pokemon_species.name}
-                    </li>)
-
-                })}
-            </ul>
-        </>
-    )
+        <div>
+        Pokédex
+        <ul>
+          <li>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/sobre">
+              <a>Sobre o projeto</a>
+            </Link>
+          </li>
+        </ul>
+  
+        <ul>
+          {pokemons.map((pokemon) => (
+            <li key={pokemon.entry_number}>
+              <Link href={`/pokemon/${pokemon.entry_number}`}>
+                <a>
+                  {pokemon.pokemon_species.name}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
 }
 
 
